@@ -1,5 +1,5 @@
-import { Button, TextField } from '@material-ui/core'
-import React, { useState } from 'react'
+import { Button, TextField, Typography } from '@material-ui/core'
+import React, { useEffect, useState } from 'react'
 import useForm from './Read'
 
 const BookApp = () => {
@@ -11,6 +11,10 @@ const readFn=()=>{
  
     console.log(value)
 }
+
+useEffect(()=>{
+    console.log("Hello")
+},[])
 
     return (
         <div>
@@ -57,6 +61,9 @@ value={value.publishedYear}
 
 
    <Button onClick={readFn} fullWidth color="secondary" variant="contained"> SUBMIT </Button>
+
+
+<Typography>{value.title} </Typography>
 
         </div>
     )
