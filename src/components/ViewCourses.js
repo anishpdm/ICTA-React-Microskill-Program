@@ -18,12 +18,12 @@ var [isLoading,loadstatusChange]=useState(false)
 
     loadstatusChange(isLoading=true)
 
-    axios.get("https://mylinkurcodesapp.herokuapp.com/getcourses").then(
+    axios.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=9b6ac262eea44bcbbf80ae1b064f631d").then(
         (response)=>{
-    console.log(response.data)
+    console.log(response.data.articles)
    
    changeData(
-       courseData=response.data
+       courseData=response.data.articles
    )
 
    loadstatusChange(isLoading=false)
@@ -46,7 +46,7 @@ var [isLoading,loadstatusChange]=useState(false)
 <Table style={{ marginTop:2}}>
      <TableHead>
          <TableRow>
-             <TableCell> Course Title </TableCell>
+             <TableCell> News Title </TableCell>
              <TableCell>  Description </TableCell>
              <TableCell>  Date  </TableCell>
              <TableCell>  Venue  </TableCell>
@@ -57,8 +57,8 @@ var [isLoading,loadstatusChange]=useState(false)
      <TableBody>
          {courseData.map((value,index)=>{
 return <TableRow> 
-<TableCell> {value.courseTitle} </TableCell>
-<TableCell> {value.courseDescription} </TableCell>
+<TableCell> {value.title} </TableCell>
+<TableCell> {value.description} </TableCell>
 <TableCell> {value.courseDate} </TableCell>
 <TableCell> {value.courseVenue} </TableCell>
 <TableCell> {value.courseDuration} </TableCell>
