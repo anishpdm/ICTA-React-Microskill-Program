@@ -11,21 +11,14 @@ const UpdateTodo = () => {
 
     const readData= ()=>{
 
-       console.log(value) 
-axios.post("http://localhost:8080/searchsingle",value).then(
+
+        console.log(value)
+axios.post("http://localhost:4000/searchsingle",value).then(
     (response)=>{
         console.log(response.data[0])
 
-        setValue1(
-            {"title":response.data[0].title}
-        )
+       changeTodoData(todoData=response.data)
 
-        changeTodoData(
-
-            todoData= response.data
-
-
-        )
     }
 
 )

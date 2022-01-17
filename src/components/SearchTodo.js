@@ -12,7 +12,7 @@ const SearchTodo = () => {
     const readData= ()=>{
 
        console.log(value) 
-axios.post("http://localhost:8080/search",value).then(
+axios.post("http://3.15.250.92:5000/search",value).then(
     (response)=>{
         console.log(response.data)
 
